@@ -43,7 +43,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fKK-qm-pZv" kind="presentation" modalTransitionStyle="crossDissolve" id="hWs-Af-JYN"/>
+                                    <segue destination="fKK-qm-pZv" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="hWs-Af-JYN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QR-c5-SCE">
@@ -76,6 +76,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4N-bq-j1T">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j0G-RK-B70">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQp-GP-02q">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <state key="normal">
@@ -85,28 +93,120 @@
                                     <segue destination="kqe-HM-HsF" kind="unwind" unwindAction="unwindToViewController:" id="SSN-Dc-9DW"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Prototype-Dialog" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-S8-CJb" customClass="SpringImageView" customModule="Spring">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-mw-rk2" customClass="DesignableView" customModule="Spring">
                                 <rect key="frame" x="20" y="144" width="280" height="280"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fb-S4-zWP">
+                                        <rect key="frame" x="100" y="25" width="80" height="28"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xD5-RB-o4U">
+                                        <rect key="frame" x="69" y="56" width="142" height="28"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="LuC-Jn-7Aq" customClass="DesignableTextField" customModule="Spring">
+                                        <rect key="frame" x="15" y="108" width="250" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="6h2-W3-a0p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="IsW-0p-oAA" customClass="DesignableTextField" customModule="Spring">
+                                        <rect key="frame" x="15" y="162" width="250" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="mX4-pl-hH7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon-mail" translatesAutoresizingMaskIntoConstraints="NO" id="eO6-SU-rIh">
+                                        <rect key="frame" x="27" y="121" width="26" height="18"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon-password" translatesAutoresizingMaskIntoConstraints="NO" id="k3c-eD-Njy">
+                                        <rect key="frame" x="27" y="171" width="25" height="25"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raz-Ow-nMd" customClass="DesignableButton" customModule="Spring">
+                                        <rect key="frame" x="15" y="221" width="250" height="44"/>
+                                        <color key="backgroundColor" red="0.27843137254901962" green="0.41176470588235292" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Lzu-u4-iLv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Log in">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Hga-UB-ih4"/>
-                                    <constraint firstAttribute="width" constant="280" id="XAb-RZ-jjY"/>
+                                    <constraint firstItem="7Fb-S4-zWP" firstAttribute="centerX" secondItem="xD5-RB-o4U" secondAttribute="centerX" id="22a-iw-q70"/>
+                                    <constraint firstAttribute="height" constant="280" id="36l-z0-dKp"/>
+                                    <constraint firstItem="raz-Ow-nMd" firstAttribute="top" secondItem="IsW-0p-oAA" secondAttribute="bottom" constant="15" id="5K2-Q8-DWK"/>
+                                    <constraint firstItem="k3c-eD-Njy" firstAttribute="centerY" secondItem="IsW-0p-oAA" secondAttribute="centerY" constant="-0.5" id="77f-VT-wTC"/>
+                                    <constraint firstItem="IsW-0p-oAA" firstAttribute="leading" secondItem="k3c-eD-Njy" secondAttribute="trailing" constant="-37" id="ErC-2F-2hC"/>
+                                    <constraint firstItem="LuC-Jn-7Aq" firstAttribute="leading" secondItem="ge2-mw-rk2" secondAttribute="leading" constant="15" id="Lfs-rB-3FF"/>
+                                    <constraint firstAttribute="trailing" secondItem="LuC-Jn-7Aq" secondAttribute="trailing" constant="15" id="Mcs-Tc-FfZ"/>
+                                    <constraint firstItem="xD5-RB-o4U" firstAttribute="top" secondItem="7Fb-S4-zWP" secondAttribute="bottom" constant="3" id="OaS-GV-iol"/>
+                                    <constraint firstItem="IsW-0p-oAA" firstAttribute="leading" secondItem="ge2-mw-rk2" secondAttribute="leading" constant="15" id="P6n-VJ-LIh"/>
+                                    <constraint firstItem="eO6-SU-rIh" firstAttribute="centerY" secondItem="LuC-Jn-7Aq" secondAttribute="centerY" id="SZz-wr-wDE"/>
+                                    <constraint firstAttribute="centerX" secondItem="7Fb-S4-zWP" secondAttribute="centerX" id="UFH-Wy-IJM"/>
+                                    <constraint firstItem="IsW-0p-oAA" firstAttribute="top" secondItem="LuC-Jn-7Aq" secondAttribute="bottom" constant="10" id="VrJ-re-Wxe"/>
+                                    <constraint firstItem="LuC-Jn-7Aq" firstAttribute="leading" secondItem="eO6-SU-rIh" secondAttribute="trailing" constant="-38" id="ajz-s4-dA1"/>
+                                    <constraint firstAttribute="trailing" secondItem="IsW-0p-oAA" secondAttribute="trailing" constant="15" id="beD-ou-6Lw"/>
+                                    <constraint firstAttribute="bottom" secondItem="raz-Ow-nMd" secondAttribute="bottom" constant="15" id="dzI-p3-D6C"/>
+                                    <constraint firstAttribute="width" constant="280" id="fOa-ac-PTU"/>
+                                    <constraint firstAttribute="trailing" secondItem="raz-Ow-nMd" secondAttribute="trailing" constant="15" id="mjK-zH-Ueh"/>
+                                    <constraint firstItem="7Fb-S4-zWP" firstAttribute="top" secondItem="ge2-mw-rk2" secondAttribute="top" constant="25" id="wOR-fi-c7D"/>
+                                    <constraint firstItem="raz-Ow-nMd" firstAttribute="leading" secondItem="ge2-mw-rk2" secondAttribute="leading" constant="15" id="zKR-HC-XFF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </imageView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1803921568627451" green="0.20000000000000001" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kQp-GP-02q" firstAttribute="leading" secondItem="5p4-bH-cbh" secondAttribute="leading" id="AFM-s3-3Ie"/>
                             <constraint firstItem="kQp-GP-02q" firstAttribute="top" secondItem="5p4-bH-cbh" secondAttribute="top" id="ETq-bJ-5Jq"/>
-                            <constraint firstItem="gXd-S8-CJb" firstAttribute="centerY" secondItem="kQp-GP-02q" secondAttribute="centerY" id="LAa-wX-4SZ"/>
                             <constraint firstItem="fvc-jH-d04" firstAttribute="top" secondItem="kQp-GP-02q" secondAttribute="bottom" id="Ls8-9N-tBY"/>
+                            <constraint firstItem="F4N-bq-j1T" firstAttribute="leading" secondItem="5p4-bH-cbh" secondAttribute="leading" id="LwE-JN-CrB"/>
+                            <constraint firstItem="ge2-mw-rk2" firstAttribute="centerX" secondItem="kQp-GP-02q" secondAttribute="centerX" id="Mzm-Ib-av2"/>
+                            <constraint firstAttribute="trailing" secondItem="F4N-bq-j1T" secondAttribute="trailing" id="Qjz-rW-GxD"/>
                             <constraint firstAttribute="trailing" secondItem="kQp-GP-02q" secondAttribute="trailing" id="SHB-qe-2xV"/>
-                            <constraint firstItem="gXd-S8-CJb" firstAttribute="centerX" secondItem="5p4-bH-cbh" secondAttribute="centerX" id="b0T-0Y-Ncb"/>
-                            <constraint firstItem="gXd-S8-CJb" firstAttribute="centerX" secondItem="kQp-GP-02q" secondAttribute="centerX" id="i7t-Ag-wj3"/>
-                            <constraint firstItem="gXd-S8-CJb" firstAttribute="centerY" secondItem="5p4-bH-cbh" secondAttribute="centerY" id="p6w-cy-3eh"/>
+                            <constraint firstItem="F4N-bq-j1T" firstAttribute="top" secondItem="5p4-bH-cbh" secondAttribute="top" id="bFr-Qo-9Hp"/>
+                            <constraint firstItem="ge2-mw-rk2" firstAttribute="centerY" secondItem="F4N-bq-j1T" secondAttribute="centerY" id="il0-SL-Cy2"/>
+                            <constraint firstItem="ge2-mw-rk2" firstAttribute="centerY" secondItem="kQp-GP-02q" secondAttribute="centerY" id="lXT-8M-cBg"/>
+                            <constraint firstItem="fvc-jH-d04" firstAttribute="top" secondItem="F4N-bq-j1T" secondAttribute="bottom" id="mLl-qW-E0u"/>
+                            <constraint firstItem="ge2-mw-rk2" firstAttribute="centerX" secondItem="F4N-bq-j1T" secondAttribute="centerX" id="svc-3k-iNT"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -306,6 +406,8 @@
         <image name="5-Web" width="320" height="568"/>
         <image name="6-Comment" width="320" height="568"/>
         <image name="7-Learn" width="320" height="568"/>
-        <image name="Prototype-Dialog" width="280" height="280"/>
+        <image name="icon-mail" width="26" height="18"/>
+        <image name="icon-password" width="25" height="25"/>
+        <image name="input-outline" width="250" height="44"/>
     </resources>
 </document>
