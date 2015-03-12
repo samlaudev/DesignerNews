@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DesignerNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xkr-jR-beP"/>
                         <viewControllerLayoutGuide type="bottom" id="s4F-sL-ppi"/>
@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="305.625" y="343.30985915492954"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="chX-LF-cRy">
             <objects>
-                <viewController id="fKK-qm-pZv" sceneMemberID="viewController">
+                <viewController id="fKK-qm-pZv" customClass="LoginViewController" customModule="DesignerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iXp-wF-sBS"/>
                         <viewControllerLayoutGuide type="bottom" id="fvc-jH-d04"/>
@@ -162,6 +162,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="fKK-qm-pZv" eventType="touchUpInside" id="D2Z-Uc-npV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,6 +212,9 @@
                             <constraint firstItem="ge2-mw-rk2" firstAttribute="centerX" secondItem="F4N-bq-j1T" secondAttribute="centerX" id="svc-3k-iNT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dialogView" destination="ge2-mw-rk2" id="LIX-1r-mQ3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvi-sj-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kqe-HM-HsF" userLabel="Exit" sceneMemberID="exit"/>
