@@ -1,0 +1,6 @@
+framework module Kiwi {
+  umbrella header "Pods-DesignerNewsTests-Kiwi-umbrella.h"
+
+  export *
+  module * { export * }
+}

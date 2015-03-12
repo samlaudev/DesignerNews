@@ -1,0 +1,6 @@
+framework module ReactiveCocoa {
+  umbrella header "Pods-DesignerNewsTests-ReactiveCocoa-umbrella.h"
+
+  export *
+  module * { export * }
+}
