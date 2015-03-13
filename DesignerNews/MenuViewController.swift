@@ -1,15 +1,15 @@
 //
-//  LoginViewController.swift
+//  MenuViewController.swift
 //  DesignerNews
 //
-//  Created by Sam Lau on 3/12/15.
+//  Created by Sam Lau on 3/13/15.
 //  Copyright (c) 2015 Sam Lau. All rights reserved.
 //
 
 import UIKit
 import Spring
 
-class LoginViewController: UIViewController {
+class MenuViewController: UIViewController {
 
     // MARK: - UI properties
     @IBOutlet weak var dialogView: DesignableView!
@@ -19,15 +19,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
-        dialogView.animation = "shake"
-        dialogView.animate()
-    }
-    
     // MARK: - Respond to action
     @IBAction func closeButtonDidTouch(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        dialogView.animation = "zoomOut"
+        
+        dialogView.animation = "fall"
         dialogView.animate()
     }
 }

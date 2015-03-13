@@ -1,23 +1,9 @@
 {
   "images" : [
     {
-      "resizing" : {
-        "mode" : "9-part",
-        "center" : {
-          "mode" : "fill",
-          "width" : 1,
-          "height" : 1
-        },
-        "capInsets" : {
-          "bottom" : 22,
-          "top" : 21,
-          "right" : 3,
-          "left" : 3
-        }
-      },
       "idiom" : "universal",
-      "filename" : "input-outline.pdf",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "input-outline.pdf"
     },
     {
       "idiom" : "universal",
