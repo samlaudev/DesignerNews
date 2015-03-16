@@ -52,6 +52,15 @@ class TopStoriesViewController: UITableViewController {
         performSegueWithIdentifier("WebSegue", sender: self)
         
     }
+    
+    // MARK: - Transmit data
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CommentsSegue" {
+            let destViewController = segue.destinationViewController as CommentsViewController
+            let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
+            destViewController.story = data[indexPath.row]
+        }
+    }
 }
 
 // MARK: - StoryCellDelegate

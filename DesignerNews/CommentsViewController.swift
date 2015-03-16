@@ -10,9 +10,14 @@ import UIKit
 
 class CommentsViewController: UITableViewController {
 
+    // MARK: - UI properties
+    var story = [String: AnyObject]()
+    
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        println(story)
     }
 
     // MARK: - Table view data source

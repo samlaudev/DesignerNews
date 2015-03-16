@@ -37,7 +37,7 @@ class StoryCell: UITableViewCell {
     
     @IBAction func commentButtonDidTouch(sender: AnyObject) {
         commentButton.animate()
-        delegate?.storyCellDidTouchComment(self, sender: sender)
+        delegate?.storyCellDidTouchComment(self, sender: self)
     }
     
     // MARK: - UI helper
