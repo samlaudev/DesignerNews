@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class TopStoriesViewController: UITableViewController {
 
@@ -14,8 +15,8 @@ class TopStoriesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Dynamic height for cells
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     // MARK: - Respond to action
@@ -29,17 +30,15 @@ class TopStoriesViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as StoryCell
-        cell.badgeImageView.image = UIImage(named: "badge-apple")
-        cell.titleLabel.text = "Learn iOS design and code"
-        cell.timeLabel.text = "5m"
-        cell.avatarImageView.image = UIImage(named: "content-avatar-default")
-        cell.upvoteButton.titleLabel?.text = "54"
-        cell.commentButton.titleLabel?.text = "32"
+        // Get data
+        let story = data[indexPath.row]
+        cell.configureStoryCell(story)
+
         // Setup delegate
         cell.delegate = self
         
