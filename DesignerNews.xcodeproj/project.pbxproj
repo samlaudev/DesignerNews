@@ -15,6 +15,8 @@
 		1A6C93011AB1535700312F30 /* DesignerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C93001AB1535700312F30 /* DesignerNewsTests.swift */; };
 		1A6C930B1AB18D7400312F30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C930A1AB18D7400312F30 /* LoginViewController.swift */; };
 		1A6C930D1AB1A89800312F30 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C930C1AB1A89800312F30 /* LearnViewController.swift */; };
+		1A6F1FD81AB6844F0046039A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6F1FD71AB6844F0046039A /* SwiftyJSON.swift */; };
+		1A6F1FDA1AB68F330046039A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6F1FD91AB68F330046039A /* CommentCell.swift */; };
 		1AAAA1E61AB28B6F0032D8D8 /* TopStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAA1E51AB28B6F0032D8D8 /* TopStoriesViewController.swift */; };
 		1AAAA1E81AB2BEA80032D8D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAA1E71AB2BEA80032D8D8 /* MenuViewController.swift */; };
 		1AAAA1EA1AB2C0660032D8D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAA1E91AB2C0660032D8D8 /* WebViewController.swift */; };
@@ -49,6 +51,8 @@
 		1A6C93001AB1535700312F30 /* DesignerNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerNewsTests.swift; sourceTree = "<group>"; };
 		1A6C930A1AB18D7400312F30 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1A6C930C1AB1A89800312F30 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		1A6F1FD71AB6844F0046039A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		1A6F1FD91AB68F330046039A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		1AAAA1E51AB28B6F0032D8D8 /* TopStoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesViewController.swift; sourceTree = "<group>"; };
 		1AAAA1E71AB2BEA80032D8D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1AAAA1E91AB2C0660032D8D8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -108,12 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				1A6C92E71AB1535700312F30 /* AppDelegate.swift */,
+				1A6F1FD71AB6844F0046039A /* SwiftyJSON.swift */,
 				1A6C930A1AB18D7400312F30 /* LoginViewController.swift */,
 				1A6C930C1AB1A89800312F30 /* LearnViewController.swift */,
 				1AAAA1E71AB2BEA80032D8D8 /* MenuViewController.swift */,
 				1AAAA1E51AB28B6F0032D8D8 /* TopStoriesViewController.swift */,
 				1AAAA1E91AB2C0660032D8D8 /* WebViewController.swift */,
 				1AAB7D031AB6674B00FC6D91 /* CommentsViewController.swift */,
+				1A6F1FD91AB68F330046039A /* CommentCell.swift */,
 				1AAAA1EB1AB2C2570032D8D8 /* StoryCell.swift */,
 				1AAB7D061AB6689500FC6D91 /* AutoTextView.swift */,
 				1AAAA1ED1AB412ED0032D8D8 /* Data.swift */,
@@ -370,9 +376,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6F1FDA1AB68F330046039A /* CommentCell.swift in Sources */,
 				1AAAA1E61AB28B6F0032D8D8 /* TopStoriesViewController.swift in Sources */,
 				1AAAA1E81AB2BEA80032D8D8 /* MenuViewController.swift in Sources */,
 				1A6C930B1AB18D7400312F30 /* LoginViewController.swift in Sources */,
+				1A6F1FD81AB6844F0046039A /* SwiftyJSON.swift in Sources */,
 				1AAAA1EC1AB2C2570032D8D8 /* StoryCell.swift in Sources */,
 				1A6C930D1AB1A89800312F30 /* LearnViewController.swift in Sources */,
 				1AAAA1EA1AB2C0660032D8D8 /* WebViewController.swift in Sources */,

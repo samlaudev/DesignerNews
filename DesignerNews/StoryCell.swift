@@ -41,16 +41,16 @@ class StoryCell: UITableViewCell {
     }
     
     // MARK: - UI helper
-    func configureStoryCell(story: AnyObject) {
-        let title = story["title"] as String
-        let badge = story["badge"] as String
-        let userPortraitUrl = story["user_portrait_url"] as String
-        let userDisplayName = story["user_display_name"] as String
-        let userJob = story["user_job"] as String
-        let createdAt = story["created_at"] as String
-        let voteCount = story["vote_count"] as Int
-        let commentCount = story["comment_count"] as Int
-        let comment = story["comment"] as String
+    func configureStoryCell(story: JSON) {
+        let title = story["title"].string!
+        let badge = story["badge"].string!
+        let userPortraitUrl = story["user_portrait_url"].string!
+        let userDisplayName = story["user_display_name"].string!
+        let userJob = story["user_job"].string!
+        let createdAt = story["created_at"].string!
+        let voteCount = story["vote_count"].int!
+        let commentCount = story["comment_count"].int!
+        let comment = story["comment"].string!
         
         badgeImageView.image = UIImage(named: "badge-" + badge)
         titleLabel.text = title

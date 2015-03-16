@@ -8,7 +8,7 @@
 
 import UIKit
 
-var data: [[String: AnyObject]] = [
+var data:JSON  = [
     [
         "id": 45940,
         "title": "Rdio, Spotify, or other?",
@@ -96,7 +96,7 @@ var data: [[String: AnyObject]] = [
             ],
             [
                 "id": 139718,
-                "body": "Nice site.\r\n\r\nWould have been nice if they added an explicit _close_ or _back_ button when viewing airport details. There is no obvious link back to the overview. ",
+                "body": "Nice site.\r\n\r\nWould have been nice ",
                 "body_html": "<p>Nice site.</p>\n\n<p>Would have been nice if they added an explicit <em>close</em> or <em>back</em> button when viewing airport details. There is no obvious link back to the overview. </p>\n",
                 "created_at": "2015-03-13T17:07:37Z",
                 "depth": 0,

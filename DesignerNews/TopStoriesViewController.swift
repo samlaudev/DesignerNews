@@ -59,6 +59,7 @@ class TopStoriesViewController: UITableViewController {
             let destViewController = segue.destinationViewController as CommentsViewController
             let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
             destViewController.story = data[indexPath.row]
+            destViewController.comments = destViewController.story["comments"]
         }
     }
 }
