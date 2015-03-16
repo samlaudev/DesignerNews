@@ -10,6 +10,8 @@ import UIKit
 import Spring
 
 class TopStoriesViewController: UITableViewController {
+    // MARK: - UI properties
+    let transitionManager = TransitionManager()
 
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
@@ -49,7 +51,7 @@ class TopStoriesViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        performSegueWithIdentifier("WebSegue", sender: self)
+        performSegueWithIdentifier("WebSegue", sender: indexPath)
         
     }
     
@@ -60,6 +62,14 @@ class TopStoriesViewController: UITableViewController {
             let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
             destViewController.story = data[indexPath.row]
             destViewController.comments = destViewController.story["comments"]
+        }else  if segue.identifier == "WebSegue" {
+            let destViewController = segue.destinationViewController as WebViewController
+            let indexPath = sender as NSIndexPath
+            destViewController.url = data[indexPath.row]["url"].string
+            // Hide status
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+            // Setup transition manager
+            destViewController.transitioningDelegate = transitionManager
         }
     }
 }

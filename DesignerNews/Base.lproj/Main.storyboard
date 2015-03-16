@@ -357,6 +357,9 @@
                                             <color key="titleColor" red="0.86666666670000003" green="0.8980392157" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="twitterButtonDidTouch:" destination="N18-ad-T9v" eventType="touchUpInside" id="5OW-yj-GC6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431372549021" green="0.18823529411764706" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
@@ -451,6 +454,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="AEs-QG-HaG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <color key="progressTintColor" red="0.21568627450980393" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -461,11 +468,18 @@
                             <constraint firstItem="qrD-OC-f9S" firstAttribute="leading" secondItem="bp4-Gv-EpD" secondAttribute="trailing" constant="25" id="NeR-GZ-csV"/>
                             <constraint firstItem="qrD-OC-f9S" firstAttribute="width" secondItem="bp4-Gv-EpD" secondAttribute="width" id="PmO-0z-7G4"/>
                             <constraint firstItem="kx3-z6-icF" firstAttribute="top" secondItem="vNH-hL-vgn" secondAttribute="top" id="RvS-Hg-Wdu"/>
+                            <constraint firstItem="AEs-QG-HaG" firstAttribute="top" secondItem="vNH-hL-vgn" secondAttribute="top" id="YJt-1w-2sh"/>
+                            <constraint firstItem="AEs-QG-HaG" firstAttribute="leading" secondItem="vNH-hL-vgn" secondAttribute="leading" id="cPh-cv-SAj"/>
+                            <constraint firstAttribute="trailing" secondItem="AEs-QG-HaG" secondAttribute="trailing" id="g9V-21-CkF"/>
                             <constraint firstItem="bp4-Gv-EpD" firstAttribute="leading" secondItem="vNH-hL-vgn" secondAttribute="leading" constant="25" id="se0-SC-xEb"/>
                             <constraint firstItem="kx3-z6-icF" firstAttribute="leading" secondItem="vNH-hL-vgn" secondAttribute="leading" id="x66-uH-dTQ"/>
                             <constraint firstItem="VPF-Sp-kB2" firstAttribute="top" secondItem="kx3-z6-icF" secondAttribute="bottom" id="xss-hp-6kr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressView" destination="AEs-QG-HaG" id="wyn-jS-Qz4"/>
+                        <outlet property="webView" destination="kx3-z6-icF" id="Rif-fH-Y9q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKm-kF-MEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
