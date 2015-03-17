@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Spring
 
 protocol StoryCellDelegate: class {
     func storyCellDidTouchUpvoate(cell: StoryCell, sender: AnyObject)
@@ -42,15 +41,15 @@ class StoryCell: UITableViewCell {
     
     // MARK: - UI helper
     func configureStoryCell(story: JSON) {
-        let title = story["title"].string!
-        let badge = story["badge"].string!
-        let userPortraitUrl = story["user_portrait_url"].string!
-        let userDisplayName = story["user_display_name"].string!
-        let userJob = story["user_job"].string!
-        let createdAt = story["created_at"].string!
-        let voteCount = story["vote_count"].int!
-        let commentCount = story["comment_count"].int!
-        let comment = story["comment"].string!
+        let title = story["title"].string ?? ""
+        let badge = story["badge"].string ?? ""
+        let userPortraitUrl = story["user_portrait_url"].string ?? ""
+        let userDisplayName = story["user_display_name"].string ?? ""
+        let userJob = story["user_job"].string ?? ""
+        let createdAt = story["created_at"].string ?? ""
+        let voteCount = story["vote_count"].int ?? 0
+        let commentCount = story["comment_count"].int ?? 0
+        let comment = story["comment"].string ?? ""
         
         badgeImageView.image = UIImage(named: "badge-" + badge)
         titleLabel.text = title

@@ -41,6 +41,12 @@ import UIKit
             layer.cornerRadius = cornerRadius
         }
     }
+    
+    @IBInspectable public var containerInset: CGFloat = 0 {
+        didSet {
+            contentInset = UIEdgeInsetsMake(-4, -4, -4, -4)
+        }
+    }
 
     @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {

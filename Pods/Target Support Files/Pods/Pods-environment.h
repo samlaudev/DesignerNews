@@ -42,12 +42,6 @@
 #define COCOAPODS_VERSION_MINOR_ReactiveViewModel 3
 #define COCOAPODS_VERSION_PATCH_ReactiveViewModel 0
 
-// Spring
-#define COCOAPODS_POD_AVAILABLE_Spring
-#define COCOAPODS_VERSION_MAJOR_Spring 1
-#define COCOAPODS_VERSION_MINOR_Spring 0
-#define COCOAPODS_VERSION_PATCH_Spring 1
-
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1

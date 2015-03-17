@@ -51,13 +51,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'ReactiveCocoa.framework'
   install_framework 'ReactiveViewModel.framework'
-  install_framework 'Spring.framework'
   install_framework 'TPKeyboardAvoiding.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'ReactiveCocoa.framework'
   install_framework 'ReactiveViewModel.framework'
-  install_framework 'Spring.framework'
   install_framework 'TPKeyboardAvoiding.framework'
 fi

@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import Spring
 
 class TopStoriesViewController: UITableViewController {
     // MARK: - UI properties
     let transitionManager = TransitionManager()
+    var stories: JSON! = []
+
 
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
@@ -19,6 +20,22 @@ class TopStoriesViewController: UITableViewController {
         // Dynamic height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        // Load data
+        loadStories("", page: 1)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        view.showLoading()
+    }
+    
+    // MARK: - Load data
+    func loadStories(section: String, page: Int) {
+        DesignerNewsService.storiesForSection(section, page: page) { (data) -> () in
+            self.stories = data
+            self.tableView.reloadData()
+            self.view.hideLoading()
+        }
     }
     
     // MARK: - Respond to action
@@ -32,13 +49,13 @@ class TopStoriesViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return stories.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as StoryCell
         // Get data
-        let story = data[indexPath.row]
+        let story = stories[indexPath.row]
         cell.configureStoryCell(story)
 
         // Setup delegate
@@ -60,12 +77,12 @@ class TopStoriesViewController: UITableViewController {
         if segue.identifier == "CommentsSegue" {
             let destViewController = segue.destinationViewController as CommentsViewController
             let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
-            destViewController.story = data[indexPath.row]
+            destViewController.story = stories[indexPath.row]
             destViewController.comments = destViewController.story["comments"]
         }else  if segue.identifier == "WebSegue" {
             let destViewController = segue.destinationViewController as WebViewController
             let indexPath = sender as NSIndexPath
-            destViewController.url = data[indexPath.row]["url"].string
+            destViewController.url = stories[indexPath.row]["url"].string
             // Hide status
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
             // Setup transition manager

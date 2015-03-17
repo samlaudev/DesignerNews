@@ -21,42 +21,31 @@
 // SOFTWARE.
 
 import UIKit
-import AudioToolbox
 
-public class SoundPlayer: NSObject {
+public class AsyncImageView: UIImageView {
 
-    @IBInspectable var filename : String?
-    @IBInspectable var enabled : Bool = true
+    public var placeholderImage : UIImage?
 
-    private struct Internal {
-        static var cache = [NSURL:SystemSoundID]()
-    }
-
-    public func playSound(soundFile:String) {
-
-        if !enabled {
-            return
-        }
-
-        if let url = NSBundle.mainBundle().URLForResource(soundFile, withExtension: nil) {
-
-            var soundID : SystemSoundID = Internal.cache[url] ?? 0
-
-            if soundID == 0 {
-                AudioServicesCreateSystemSoundID(url, &soundID)
-                Internal.cache[url] = soundID
+    public var url : NSURL? {
+        didSet {
+            self.image = placeholderImage
+            if let urlString = url?.absoluteString {
+                ImageLoader.sharedLoader.imageForUrl(urlString) { [weak self] image, url in
+                    if let strongSelf = self {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            if strongSelf.url?.absoluteString == url {
+                                strongSelf.image = image
+                            }
+                        })
+                    }
+                }
             }
-
-            AudioServicesPlaySystemSound(soundID)
-
-        } else {
-            println("Could not find sound file name `\(soundFile)`")
         }
     }
 
-    @IBAction public func play(sender: AnyObject?) {
-        if let filename = filename {
-            self.playSound(filename)
-        }
+    public func setURL(url: NSURL?, placeholderImage: UIImage?) {
+        self.placeholderImage = placeholderImage
+        self.url = url
     }
+
 }

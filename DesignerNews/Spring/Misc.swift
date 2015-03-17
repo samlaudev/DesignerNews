@@ -30,6 +30,15 @@ public extension String {
     }
 }
 
+public extension String {
+    func removeCharsFromEnd(count:Int) -> String {
+        let stringLength = countElements(self)
+        let substringIndex = (stringLength < count) ? 0 : stringLength - count
+        
+        return self.substringToIndex(advance(self.startIndex, substringIndex))
+    }
+}
+
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
     let htmlData = text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     let htmlString = NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
