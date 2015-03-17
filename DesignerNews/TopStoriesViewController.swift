@@ -12,7 +12,8 @@ class TopStoriesViewController: UITableViewController {
     // MARK: - UI properties
     let transitionManager = TransitionManager()
     var stories: JSON! = []
-
+    var isFirstTime = true
+    var section = ""
 
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
@@ -22,11 +23,17 @@ class TopStoriesViewController: UITableViewController {
         tableView.estimatedRowHeight = 100
         // Load data
         loadStories("", page: 1)
+        // Support refresh
+        refreshControl?.addTarget(self, action: "refreshStories", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        view.showLoading()
+        
+        if isFirstTime {
+            view.showLoading()
+            isFirstTime = false
+        }
     }
     
     // MARK: - Load data
@@ -35,7 +42,12 @@ class TopStoriesViewController: UITableViewController {
             self.stories = data
             self.tableView.reloadData()
             self.view.hideLoading()
+            self.refreshControl?.endRefreshing()
         }
+    }
+    
+    func refreshStories() {
+        loadStories(section, page: 1)
     }
     
     // MARK: - Respond to action
@@ -87,6 +99,9 @@ class TopStoriesViewController: UITableViewController {
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
             // Setup transition manager
             destViewController.transitioningDelegate = transitionManager
+        }else if segue.identifier == "MenuSegue" {
+            let destViewController = segue.destinationViewController as MenuViewController
+            destViewController.delegate = self
         }
     }
 }
@@ -98,5 +113,26 @@ extension TopStoriesViewController: StoryCellDelegate {
     
     func storyCellDidTouchComment(cell: StoryCell, sender: AnyObject) {
         performSegueWithIdentifier("CommentsSegue", sender: sender)
+    }
+}
+
+// MARK: - MenuViewControllerDelegate
+extension TopStoriesViewController: MenuViewControllerDelegate {
+    func menuViewControllerDidTouchTop(controller: MenuViewController) {
+        // setup section
+        section = ""
+
+        view.showLoading()
+        loadStories(section, page: 1)
+        navigationItem.title = "Top Stories"
+    }
+    
+    func menuViewControllerDidTouchRecent(controller: MenuViewController) {
+        // setup section
+        section = "recent"
+        
+        view.showLoading()
+        loadStories(section, page: 1)
+        navigationItem.title = "Recent Stories"
     }
 }
