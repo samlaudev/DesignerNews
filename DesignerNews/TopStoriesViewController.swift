@@ -97,7 +97,6 @@ class TopStoriesViewController: UITableViewController {
             let destViewController = segue.destinationViewController as CommentsViewController
             let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
             destViewController.story = stories[indexPath.row]
-            destViewController.comments = destViewController.story["comments"]
         }else  if segue.identifier == "WebSegue" {
             let destViewController = segue.destinationViewController as WebViewController
             let indexPath = sender as NSIndexPath

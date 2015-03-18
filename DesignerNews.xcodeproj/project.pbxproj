@@ -40,6 +40,7 @@
 		1A60DC431AB81F8100119FF8 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60DC261AB81F8100119FF8 /* TransitionZoom.swift */; };
 		1A60DC441AB81F8100119FF8 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60DC271AB81F8100119FF8 /* UnwindSegue.swift */; };
 		1A60DC4C1AB841E500119FF8 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60DC4B1AB841E500119FF8 /* LocalStore.swift */; };
+		1A60DC4E1AB9301800119FF8 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60DC4D1AB9301800119FF8 /* ReplyViewController.swift */; };
 		1A6C92E81AB1535700312F30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C92E71AB1535700312F30 /* AppDelegate.swift */; };
 		1A6C92EB1AB1535700312F30 /* DesignerNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C92E91AB1535700312F30 /* DesignerNews.xcdatamodeld */; };
 		1A6C92F01AB1535700312F30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6C92EE1AB1535700312F30 /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 		1A60DC261AB81F8100119FF8 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		1A60DC271AB81F8100119FF8 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		1A60DC4B1AB841E500119FF8 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		1A60DC4D1AB9301800119FF8 /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		1A6C92E21AB1535700312F30 /* DesignerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6C92E61AB1535700312F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6C92E71AB1535700312F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1AAAA1E91AB2C0660032D8D8 /* WebViewController.swift */,
 				1AAB7D031AB6674B00FC6D91 /* CommentsViewController.swift */,
 				1A3370471AB6D80E00E5A64F /* LearnViewController.swift */,
+				1A60DC4D1AB9301800119FF8 /* ReplyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				1AAAA1E81AB2BEA80032D8D8 /* MenuViewController.swift in Sources */,
 				1A60DC3B1AB81F8100119FF8 /* SpringAnimation.swift in Sources */,
 				1A60DC321AB81F8100119FF8 /* DesignableView.swift in Sources */,
+				1A60DC4E1AB9301800119FF8 /* ReplyViewController.swift in Sources */,
 				1A60DC301AB81F8100119FF8 /* DesignableTextField.swift in Sources */,
 				1A60DC361AB81F8100119FF8 /* LoadingView.swift in Sources */,
 				1A6F1FD81AB6844F0046039A /* SwiftyJSON.swift in Sources */,

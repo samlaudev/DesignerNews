@@ -56,5 +56,8 @@ struct LocalStore {
         return contains(elements, id)
     }
     
-
+    // Business methods
+    static func isHasLogin() -> Bool {
+        return getToken() != nil ? true : false
+    }
 }
