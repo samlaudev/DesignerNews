@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CommonCellDelegate: class {
+    func commonCellDelegateDidTouchUpvote(cell: CommentCell)
+    func commonCellDelegateDidTouchComment(cell: CommentCell)
+}
+
 class CommentCell: UITableViewCell {
     
     // MARK: - UI properties
@@ -17,12 +22,18 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var upvoteButton: SpringButton!
     @IBOutlet weak var replyButton: SpringButton!
     @IBOutlet weak var commentTextView: AutoTextView!
+    // MARK: - Delegate
+    weak var delegate: CommonCellDelegate?
    
     // MARK: - Respond to action
     @IBAction func upvoteButtonDidTouch(sender: AnyObject) {
+        upvoteButton.animate()
+        delegate?.commonCellDelegateDidTouchUpvote(self)
     }
     
     @IBAction func replyButtonDidTouch(sender: AnyObject) {
+        replyButton.animate()
+        delegate?.commonCellDelegateDidTouchComment(self)
     }
     
     // MARK: - UI properties
@@ -42,5 +53,16 @@ class CommentCell: UITableViewCell {
         upvoteButton.setTitle("\(voteCount)", forState: UIControlState.Normal)
         commentTextView.text = body
 //        commentTextView.attributedText = htmlToAttributedString(bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
+        
+        
+        let commentId = comment["id"].int!
+        if LocalStore.isCommentUpvoted(commentId) {
+            upvoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+            upvoteButton.setTitle(String(comment["vote_count"].int! + 1), forState: UIControlState.Normal)
+        }else {
+            upvoteButton.setImage(UIImage(named: "icon-upvote"), forState: UIControlState.Normal)
+            upvoteButton.setTitle(String(comment["vote_count"].int!), forState: UIControlState.Normal)
+        }
+        
     }
 }

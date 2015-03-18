@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: class {
+    func loginViewControllerDidLogin(controller: LoginViewController)
+}
+
 class LoginViewController: UIViewController {
 
     // MARK: - UI properties
@@ -16,6 +20,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordImageView: SpringImageView!
     @IBOutlet weak var emailTextField: DesignableTextField!
     @IBOutlet weak var passwordTextField: DesignableTextField!
+    
+    // MARK: - Delegate
+    weak var delegate: LoginViewControllerDelegate?
     
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
@@ -26,8 +33,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        dialogView.animation = "shake"
-        dialogView.animate()
+        DesignerNewsService.loginWithEmail(emailTextField.text, password: passwordTextField.text){
+          (token) -> () in
+            if let token = token {
+                LocalStore.saveToken(token)
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.delegate?.loginViewControllerDidLogin(self)
+            }else {
+                self.dialogView.animation = "shake"
+                self.dialogView.animate()
+                
+            }
+        }
     }
     
     // MARK: - Respond to action

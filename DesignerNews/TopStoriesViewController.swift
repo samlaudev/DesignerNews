@@ -9,11 +9,12 @@
 import UIKit
 
 class TopStoriesViewController: UITableViewController {
-    // MARK: - UI properties
-    let transitionManager = TransitionManager()
     var stories: JSON! = []
     var isFirstTime = true
     var section = ""
+    // MARK: - UI properties
+    @IBOutlet weak var loginBarButtonItem: UIBarButtonItem!
+    let transitionManager = TransitionManager()
 
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
@@ -43,6 +44,12 @@ class TopStoriesViewController: UITableViewController {
             self.tableView.reloadData()
             self.view.hideLoading()
             self.refreshControl?.endRefreshing()
+        }
+        
+        if LocalStore.getToken() == nil {
+            self.loginBarButtonItem.title = "Login"
+        }else {
+            self.loginBarButtonItem.title = ""
         }
     }
     
@@ -102,6 +109,9 @@ class TopStoriesViewController: UITableViewController {
         }else if segue.identifier == "MenuSegue" {
             let destViewController = segue.destinationViewController as MenuViewController
             destViewController.delegate = self
+        }else if segue.identifier == "LoginSegue" {
+            let destViewController = segue.destinationViewController as LoginViewController
+            destViewController.delegate = self
         }
     }
 }
@@ -109,6 +119,18 @@ class TopStoriesViewController: UITableViewController {
 // MARK: - StoryCellDelegate
 extension TopStoriesViewController: StoryCellDelegate {
     func storyCellDidTouchUpvoate(cell: StoryCell, sender: AnyObject) {
+        if let token = LocalStore.getToken() {
+            let story = stories[tableView.indexPathForCell(cell)!.row]
+            let storyId = story["id"].int!
+            DesignerNewsService.upvoteStoryWithId(storyId, token: token, response: { (successful) -> () in
+                if successful {
+                }
+            })
+            LocalStore.saveUpvoteStory(storyId)
+            cell.configureStoryCell(story)
+        }else {
+            performSegueWithIdentifier("LoginSegue", sender: sender)
+        }
     }
     
     func storyCellDidTouchComment(cell: StoryCell, sender: AnyObject) {
@@ -134,5 +156,21 @@ extension TopStoriesViewController: MenuViewControllerDelegate {
         view.showLoading()
         loadStories(section, page: 1)
         navigationItem.title = "Recent Stories"
+    }
+    
+    func menuViewControllerDidTouchLogout(controller: MenuViewController) {
+        menuViewControllerDidTouchTop(controller)
+    }
+    
+    func menuViewControllerDidTouchLogin(controller: MenuViewController) {
+        loginBarButtonItem.target?.performSegueWithIdentifier("LoginSegue", sender: loginBarButtonItem)
+    }
+}
+
+// MARK: - LoginViewControllerDelegate
+extension TopStoriesViewController: LoginViewControllerDelegate {
+    func loginViewControllerDidLogin(controller: LoginViewController) {
+        view.showLoading()
+        loadStories(section, page: 1)
     }
 }

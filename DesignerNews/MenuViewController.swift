@@ -11,18 +11,27 @@ import UIKit
 protocol MenuViewControllerDelegate: class {
     func menuViewControllerDidTouchTop(controller: MenuViewController)
     func menuViewControllerDidTouchRecent(controller: MenuViewController)
+    func menuViewControllerDidTouchLogout(controller: MenuViewController)
+    func menuViewControllerDidTouchLogin(controller: MenuViewController)
 }
 
 class MenuViewController: UIViewController {
 
     // MARK: - UI properties
     @IBOutlet weak var dialogView: DesignableView!
+    @IBOutlet weak var logoutLabel: UILabel!
     // MARK: - Delegate
     weak var delegate: MenuViewControllerDelegate?
     
     // MARK: - View controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if LocalStore.getToken() == nil {
+            logoutLabel.text = "Login"
+        }else {
+            logoutLabel.text = "Logout"
+        }
     }
     
     // MARK: - Respond to action
@@ -44,6 +53,14 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func logoutButtonDidTouch(sender: AnyObject) {
+        if LocalStore.getToken() == nil {   // need to login
+            dismissViewControllerAnimated(true, completion: nil)
+            self.delegate?.menuViewControllerDidTouchLogin(self)
+        }else {                             // need to logout
+            LocalStore.removeToken()
+            dismissViewControllerAnimated(true, completion: nil)
+            self.delegate?.menuViewControllerDidTouchLogout(self)
+        }
     }
 }
 

@@ -64,5 +64,15 @@ class StoryCell: UITableViewCell {
             commentTextView.text = comment
 //            commentTextView.attributedText = htmlToAttributedString(commentHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
         }
+        
+        // Update upvote state
+        let storyId = story["id"].int!
+        if LocalStore.isStoryUpvoted(storyId) {
+            upvoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+            upvoteButton.setTitle(String(story["vote_count"].int! + 1), forState: UIControlState.Normal)
+        }else {
+            upvoteButton.setImage(UIImage(named: "icon-upvote"), forState: UIControlState.Normal)
+            upvoteButton.setTitle(String(story["vote_count"].int!), forState: UIControlState.Normal)
+        }
     }
 }
